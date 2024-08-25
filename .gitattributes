@@ -1,0 +1,52 @@
+# Source code
+**/*.js             eol=lf encoding=utf8 diff=utf8
+**/*.jsx            eol=lf encoding=utf8 diff=utf8
+**/*.ts             eol=lf encoding=utf8 diff=utf8
+**/*.tsx            eol=lf encoding=utf8 diff=utf8
+**/*.py             eol=lf encoding=utf8 diff=utf8
+
+# Scripts
+**/*.bat            eol=crlf working-tree-encoding=cp932 diff=cp932
+**/*.ps1            eol=crlf working-tree-encoding=cp932 diff=cp932
+**/*.sh             eol=lf encoding=utf8 diff=utf8
+
+# Documents
+**/*.json           eol=lf encoding=utf8 diff=utf8
+**/*.yml            eol=lf encoding=utf8 diff=utf8
+**/*.yaml           eol=lf encoding=utf8 diff=utf8
+**/*.html           eol=lf encoding=utf8 diff=utf8
+**/*.xml            eol=lf encoding=utf8 diff=utf8
+**/*.css            eol=lf encoding=utf8 diff=utf8
+**/*.css.map        eol=lf encoding=utf8 diff=utf8
+**/*.scss           eol=lf encoding=utf8 diff=utf8
+**/*.txt            eol=lf encoding=utf8 diff=utf8
+**/*.md             eol=lf encoding=utf8 diff=utf8
+
+# Media
+**/*.bmp            binary
+**/*.BMP            binary
+**/*.jpg            binary
+**/*.JPG            binary
+**/*.jpeg           binary
+**/*.JPEG           binary
+**/*.png            binary
+**/*.PNG            binary
+**/*.webp           binary
+**/*.WEBP           binary
+**/*.mpg            binary
+**/*.mpeg           binary
+**/*.mp3            binary
+**/*.mp4            binary
+
+**/*.gltf          eol=lf encoding=utf8 diff=utf8
+
+# Archive
+**/*.zip            binary
+**/*.tar.gz         binary
+**/*.tgz            binary
+
+# Settings
+**/*.git            eol=lf encoding=utf8 diff=utf8
+**/*.gitignore      eol=lf encoding=utf8 diff=utf8
+**/*.gitattributes  eol=lf encoding=utf8 diff=utf8
+**/*.code-workspace eol=lf encoding=utf8 diff=utf8
