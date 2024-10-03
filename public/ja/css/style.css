@@ -464,15 +464,8 @@ background-color: rgba(255, 255, 150, 0.5);
 /* ソーシャルリンク */
 #social {
     margin-bottom: 120px;
-    text-align: center; /* セクションを中央揃えに */
 }
 
-#social h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #99cc99; /* タイトルの色 */
-    text-shadow: 0 0 10px rgba(153, 204, 153, 0.8); /* タイトルにネオン効果 */
-}
 
 #social ul {
     padding:50px 0px 50px;
@@ -481,6 +474,7 @@ background-color: rgba(255, 255, 150, 0.5);
     width: 80%;
     margin: 0 auto; /* 自動で左右のマージンを調整 */
     overflow: hidden;
+    text-align: center; /* セクションを中央揃えに */
 }
 
 #social ul li {
