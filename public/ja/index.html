@@ -5,6 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAR Atrangel ** VRChat Midnight Forest Bar **</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+	    // ページ表示時に、URLに#がついていても一番上に強制スクロール
+	    if (window.location.hash) {
+	        $(window).scrollTop(0);
+	    }
+	    $(window).scrollTop(0);
+
+	    // スクロールを無効にする
+	    $('body').css('overflow', 'hidden');
+
+	    setTimeout(function() {
+	        $('#top .overlay').fadeOut(3000, function() {
+	            // スクロールを有効にする
+	            $('body').css('overflow', '');
+	        });
+	    }, 2000);
+
+	    // 自動でメニューを閉じるためのタイマー変数
+	    let menuCloseTimer;
+
+	    // メニューを開閉する関数
+	    function toggleMenu() {
+	        // メニューのリスト項目をスライドで開閉（MENU以外の項目）
+	        $('#header ul li:not(:first-child)').slideToggle(300);
+
+	        // メニューが開いたら5秒後に自動で閉じる
+	        resetMenuCloseTimer();
+	    }
+
+	    // タイマーをリセットする関数
+	    function resetMenuCloseTimer() {
+	        // 既存のタイマーがある場合はクリア
+	        if (menuCloseTimer) {
+	            clearTimeout(menuCloseTimer);
+	        }
+
+	        // 新しいタイマーを設定（5秒後に自動でメニューを閉じる）
+	        menuCloseTimer = setTimeout(function() {
+	            $('#header ul li:not(:first-child)').slideUp(300); // メニューを閉じる
+	        }, 5000); // 5000ms = 5秒
+	    }
+
+	    // メニューの開閉処理
+	    $('#header ul li:first-child').on('click', function() {
+	        toggleMenu();
+	    });
+
+	    // ページ内リンクのクリック時のスクロールアニメーション
+	    $('#header ul li a').on('click', function(e) {
+	        // デフォルトのリンク動作を無効化
+	        e.preventDefault();
+
+	        // 移動先のターゲットIDを取得
+	        var target = $(this).attr('href');
+	        
+	        // ターゲットが存在する場合にスクロールアニメーションを実行
+	        if ($(target).length) {
+	            $('html, body').animate({
+	                scrollTop: $(target).offset().top
+	            }, 350);  // 1000ms（1秒）でスクロール
+	        }
+
+	        // メニューを閉じるタイマーをリセット
+	        resetMenuCloseTimer();
+	    });
+
+	    // MOREボタンがクリックされた時のイベント
+	    $('.memberBox a').on('click', function(e) {
+	        e.preventDefault(); // デフォルトのリンク動作をキャンセル
+
+	        // クリックされたリンクのhref属性を取得
+	        var imgSrc = $(this).attr('href');
+
+	        // モーダルに画像を表示
+	        $('#modalImage').attr('src', imgSrc);
+
+	        // モーダルを表示
+	        $('#modal').fadeIn(300);
+	    });
+
+	    // モーダルを閉じる処理
+	    $('.close').on('click', function() {
+	        $('#modal').fadeOut(300);
+	    });
+
+	    // モーダル領域外をクリックした場合に閉じる
+	    $(window).on('click', function(e) {
+	        if ($(e.target).is('#modal')) {
+	            $('#modal').fadeOut(300);
+	        }
+	    });
+
+
+	    $('#contactForm').on('submit', function(event) {
+	        // エラーメッセージをクリア
+	        $('.error-message').remove();
+	        
+	        // 入力チェック用のフラグ
+	        let isValid = true;
+
+	        // 名前のバリデーション
+	        if ($('#name').val().trim() === '') {
+	            isValid = false;
+	            $('#name').after('<span class="error-message" style="color:red;">お名前を入力してください。</span>');
+	        }
+
+	        // メールアドレスのバリデーション
+	        let email = $('#email').val().trim();
+	        if (email === '') {
+	            isValid = false;
+	            $('#email').after('<span class="error-message" style="color:red;">メールアドレスを入力してください。</span>');
+	        } else if (!validateEmail(email)) {
+	            isValid = false;
+	            $('#email').after('<span class="error-message" style="color:red;">正しいメールアドレスを入力してください。</span>');
+	        }
+
+	        // メッセージのバリデーション
+	        if ($('#message').val().trim() === '') {
+	            isValid = false;
+	            $('#message').after('<span class="error-message" style="color:red;">お問い合わせ内容を入力してください。</span>');
+	        }
+
+	        // 無効な場合は送信を中止
+	        if (!isValid) {
+	            event.preventDefault();
+	        }
+	    });
+
+	    // メールアドレスのフォーマットチェック用関数
+	    function validateEmail(email) {
+	        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	        return re.test(email);
+	    }
+
+	});
+    </script>
 </head>
 <body>
 <div id = "header">
@@ -46,136 +185,147 @@
 <div id="main">
 	<div id="info" name="info">
 		<h1>INFORMATION</h1>
-		<div class="part">
-			<h2>開店日</h2>
-			<p>毎週火・金曜日 24:00～26:00</p>
-		</div>
-		<div class="part">
-			<h2>開店場所</h2>
-			<p>VRChat</p>
-		</div>
+		<span class="grow"></span>
 		<div class="part">
 			<h2>参加方法</h2>
-			<p><a href="https://vrchat.com/home/group/grp_23a8aab5-23c6-43bd-a4c8-29f71f2b5069" target="_blank">グループ「ATRNGL.7820」</a>に加入後、時間になりましたらワールドに入場してください。</p>
-		</div>
-		<div class="part">
-			<h2>開店日</h2>
-			<p>毎週火・金曜日 24:00～26:00</p>
+			<p><a href="https://vrchat.com/home/group/grp_23a8aab5-23c6-43bd-a4c8-29f71f2b5069" target="_blank" class="banner"><img src="img/Atrangel_logo.png" alt="VRChat"></a></p>
+			<p><a href="https://vrchat.com/home/group/grp_23a8aab5-23c6-43bd-a4c8-29f71f2b5069" target="_blank">グループ「ATRNGL.7820」</a>に加入後、時間になりましたらワールドに入場してください。<br>（毎週火・金曜日 24:00～26:00 OPEN）</p>
 		</div>
 
 	</div>
 	<div id="contents" name="contents">
 		<h1>ATRANGEL CONTENTS</h1>
-		<div class="contentsBOX">
+		<span class="grow"></span>
+		<div class="contentsBox">
 			<div class="part content_photo">
-				<h2>集合写真</h2>
-				<p>インベント終了５分前に集合写真を撮影します。<br>SNSに投稿の際はこちらのタグをご利用ください。</p>
-				<p>【<a href="https://x.com/hashtag/%E3%82%A2%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AB" target="_blank">#アトランジェル</a>】【<a href="https://x.com/hashtag/ATRANGEL" target="_blank">#ATRANGEL</a>】</p>
+				<div class="wrap">
+					<h2>集合写真</h2>
+					<p>インベント終了５分前に集合写真を撮影します。<br>SNSに投稿の際はこちらのタグをご利用ください。</p>
+					<p>【<a href="https://x.com/hashtag/%E3%82%A2%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AB" target="_blank">#アトランジェル</a>】【<a href="https://x.com/hashtag/ATRANGEL" target="_blank">#ATRANGEL</a>】</p>
+				</div>
 			</div>
 			<div class="part content_live">
-				<h2>パフォーマンス</h2>
-				<p>リサイタルやDJ等のライブイベントを不定期に開催しています。<br>出演を希望される方は【<a href="#">こちらからご連絡</a>】いただくか、スタッフまで直接ご相談ください。</p>
+				<div class="wrap">
+					<h2>パフォーマンス</h2>
+					<p>リサイタルやDJ等のライブイベントを不定期に開催しています。<br>出演を希望される方は【<a href="#contact">こちらからご連絡</a>】いただくか、スタッフまで直接ご相談ください。</p>
+				</div>
 			</div>
-			<div class="part content_live">
-				<h2>Atrangel Family</h2>
-				<p>Atrangelスタッフとお客様で遊ぶことができる交流所です。<br>皆様のご参加をお待ちしております。【<a href="https://discord.gg/MsxUFc8nCs">Discord Atrangel Family</a>】</p>
+			<div class="part content_family">
+				<div class="wrap">
+					<h2>Atrangel Family</h2>
+					<p>Atrangelスタッフとお客様で遊ぶことができる交流所です。<br>皆様のご参加をお待ちしております。<br>【<a href="https://discord.gg/MsxUFc8nCs">Discord Atrangel Family</a>】</p>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div id="member" name="member">
 		<h1>MEMBER</h1>
+		<span class="grow"></span>
 		<div class="memberBox">
 			<div class="nectalia">
-				<p>ネクタリア</p>
-				<a href="">MORE</a>
+				<p>マスター　ネクタリア</p>
+				<a href="img/detail_nectalia.jpg">MORE</a>
 			</div>
 			<div class="nisha">
 				<p>ニシャ</p>
-				<a href="">MORE</a>
+				<a href="img/detail_nisha.jpg">MORE</a>
 			</div>
 			<div class="akiaki">
 				<p>あきあき</p>
-				<a href="">MORE</a>
+				<a href="img/detail_akiaki.jpg">MORE</a>
 			</div>
 			<div class="kirara">
 				<p>北星きらら</p>
-				<a href="">MORE</a>
+				<a href="img/detail_kirara.jpg">MORE</a>
 			</div>
 			<div class="arum">
 				<p>アルム</p>
-				<a href="">MORE</a>
+				<a href="img/detail_arum.jpg">MORE</a>
 			</div>
-
 		</div>
-
 	</div>
-	<div id="social" name="social">
-		<h1>SOCIAL LINK</h1>
-		<ul>
-			<li><a href="https://x.com/AtrangelBar" target="_blank" class="x">X（旧Twitter）</a></li>
-			<li><a href="https://bsky.app/profile/atrangelbar.bsky.social" target="_blank" class="bluesky">Bluesky(告知のみ)</a></li>
-			<li><a href="https://misskey.io/@AtrangelBar" target="_blank" class="misskey">Misskey(告知のみ)</a></li>
-		</ul>
-	</div>
+<div id="social" name="social">
+    <h1>SOCIAL LINK</h1>
+    <span class="grow"></span>
+    <ul>
+        <li>
+            <a href="https://x.com/AtrangelBar" target="_blank" class="x">
+                <img src="img/social_x.png" alt="X（旧Twitter）" />
+                X（旧Twitter）
+            </a>
+        </li>
+        <li>
+            <a href="https://bsky.app/profile/atrangelbar.bsky.social" target="_blank" class="bluesky">
+                <img src="img/social_bluesky.png" alt="Bluesky(告知のみ)" />
+                Bluesky(告知のみ)
+            </a>
+        </li>
+        <li>
+            <a href="https://misskey.io/@AtrangelBar" target="_blank" class="misskey">
+                <img src="img/social_misskey.png" alt="Misskey(告知のみ)" />
+                Misskey(告知のみ)
+            </a>
+        </li>
+    </ul>
+</div>
 	<div id="contact" name="contact">
-		<h1>CONTACT</h1>
-		<div>あああああああ</div>
+	    <h1>CONTACT</h1>
+	    <span class="grow"></span>
+	    <form id="contactForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd9yBkPWhYHACjnrswAGl3qYPE-6LcAJYpRSM0h4HEJQtUpvA/formResponse" method="POST" target="hidden_iframe">
+	        <label for="name">お名前<span class="required">*</span></label>
+	        <input type="text" id="name" name="name" required>
+
+	        <label for="email">メールアドレス<span class="required">*</span></label>
+	        <input type="email" id="email" name="email" required>
+
+	        <label for="message">お問い合わせ内容<span class="required">*</span></label>
+	        <textarea id="message" name="message" required></textarea>
+
+	        <button type="submit">送信</button>
+	    </form>
 	</div>
-	<div id="top" name="notes">
-		<h1>NOTES</h1>
-		<ul>
-			<li>利用規約
-				<ul>
-					<li></li>
-					<li></li>
-				</ul>
-			</li>
-			<li>行動に関する制限
-				<ul>
-					<li>他のお客様の迷惑となる行為</li>
-					<li>イベントの目的に沿わない行為<br>※睡眠、出会い目的、宣伝目的によるご来店など</li>
-					<li>イベントのパフォーマンスを妨害する行為</li>
-					<li></li>
-				</ul>
+	<div id="notes" name="notes">
+		<h1>NOTES<span></span></h1>
+		<span class="grow"></span>
+		
+		<div class="notesBox">
+			<ul>
+				<li>行動に関する制限
+					<ul>
+						<li>他のお客様の迷惑となる行為</li>
+						<li>イベントの目的に沿わない行為<br>※睡眠、出会い目的、宣伝目的によるご来店など</li>
+						<li>イベントのパフォーマンスを妨害する行為</li>
+					</ul>
 
-			</li>
-			<li>アバターに関する制限
-				<ul>
-					<li>著作権を侵害しているアバター<br>※アニメキャラクターなど</li>
-					<li>他者に迷惑のかかるアバターはご遠慮ください。<br>※視界エフェクト、配慮のないアバターサウンド、過度に派手なパーティクルなど</li>
-					<li>他者を不快にさせるアバター<br>※恐怖、残虐、虫など</li>
-					<li>公序良俗に反するアバター<br>※極端に露出度の高いアバターなど</li>
-					<li></li>
-				</ul>
-			</li>
-			<li>おねがい
-				<ul>
-					<li>イベント内での頻繁なアバターの変更<br>ゲームの性質上、アバターをロードする毎にラグが発生します。</li>
-					<li>負荷の高いアバター<br>可能であれば、複数の衣装をアップロードしていないものでお願い致します。</li>
-					<li></li>
-				</ul>
-			</li>
-			<li>その他、スタッフが不適切が判断とした場合は注意を行う場合があります。
-			</li>
-
-
-		</ul>
+				</li>
+				<li>アバターに関する制限
+					<ul>
+						<li>著作権を侵害しているアバター<br>※アニメキャラクターなど</li>
+						<li>他者に迷惑のかかるアバターはご遠慮ください。<br>※視界エフェクト、配慮のないアバターサウンド、過度に派手なパーティクルなど</li>
+						<li>他者を不快にさせるアバター<br>※恐怖、残虐、虫など</li>
+						<li>公序良俗に反するアバター<br>※極端に露出度の高いアバターなど</li>
+					</ul>
+				</li>
+				<li>おねがい
+					<ul>
+						<li>イベント内での頻繁なアバターの変更<br>ゲームの性質上、アバターをロードする毎にラグが発生します。</li>
+						<li>負荷の高いアバター<br>可能であれば、複数の衣装をアップロードしていないものでお願い致します。</li>
+					</ul>
+				</li>
+				<li>その他、スタッフが不適切と判断した場合は注意を行う場合があります。
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 <div id="footer">
 	<p class="copy">&copy; BAR Atrangel</p>
 </div>
-
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+</div>
 
 </body>
 </html>
-
-
-<!--
-デザイン参考
-https://www.toei-eigamura.com/edosakaba/
-https://www.felissimo.co.jp/gopeace/happycaps/
-https://www.junonline.jp/special/ropepicnic_collection_23autumnwinter/
-https://ippukuandmatcha.jp/
-
--->
