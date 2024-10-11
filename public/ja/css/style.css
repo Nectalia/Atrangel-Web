@@ -10,13 +10,33 @@ body {
 }
 
 a {
-    color: #f5f5f5;
+    color: #99cc99; 
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #99cc99; /* ライトグリーン */
+    color: #66aa66;
+}
+
+a.linkbox {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1em;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #77dd77; 
+    color: #1a1a1a;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* アニメーションを追加 */
+}
+
+a.linkbox:hover {
+    background-color: #44cc44;
+    color: #fff;
+    text-shadow: 1px 1px 1px #225522;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 /* ヘッダー */
@@ -25,7 +45,7 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px; /* 高さを80pxに設定 */
+    height: 80px;
     padding: 10px 0;
     z-index: 1000;
     display: flex;
@@ -45,15 +65,33 @@ a:hover {
     overflow:hidden;
     text-indent:-100%
 }
-
+#header .link {
+    position:absolute;
+    right:15px;
+    top:10px;
+    width:200px;
+    line-height:0px;
+    font-size:0px;
+    border: 1px solid #99cc99; 
+    border-radius: 5px;
+    overflow:hidden;
+    transition: opacity 0.3s ease;
+}
+#header .link:hover{
+    opacity: 0.6;
+}
+#header .link img{
+    width:100%;
+    height:auto;
+}
 
 #header ul {
     position:absolute;
-    right:10px;
-    top:30px;
+    right:15px;
+    top:78px;
     width:200px;
     list-style: none;
-    border: 1px solid #99cc99; /* ライトグリーン */
+    border: 1px solid #99cc99; 
     border-radius: 5px;
     padding-left:0;
     background-color: rgba(0,50,0,0.8);
@@ -70,7 +108,7 @@ a:hover {
 }
 
 #header ul li a {
-    font-size: 0.9em; /* フォントサイズを小さく */
+    font-size: 0.9em;
     padding: 0px 5px;
     display:block;
     height:35px;
@@ -91,18 +129,33 @@ a:hover {
     overflow:hidden;
     margin-bottom:120px;
 }
-#entrance #top{
+#entrance #top {
     position:relative;
-    width: 100%; 
+    width: 100%;
     height: 100vh; /* ビューポートの高さに対応 */
-    background-image: url('https://www.canola-ent.jp/src/img/bar/group-pic-1.png'); /* ダミー背景画像 */
+
+}
+#entrance #top .bg{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
     background-size: cover; /* 画像が画面いっぱいにカバーするように */
     background-position: center; /* 画像を中央に配置 */
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    display:none;
+}
+#entrance #top .background1{
+    background-image: url('../img/header-1.png');
+}
+#entrance #top .background2{
+    background-image: url('../img/header-2.png');
+}
+#entrance #top .background3{
+    background-image: url('../img/header-3.png');
+}
+#entrance #top .background4{
+    background-image: url('../img/header-4.png');
 }
 #entrance .overlay{
     width:100%;
@@ -111,8 +164,8 @@ a:hover {
     z-index:1001;
     position:fixed;
     display: flex;
-justify-content: center;  /* 横方向に中央揃え */
-    align-items: center;      /* 縦方向に中央揃え */
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 #entrance .overlay h2{
@@ -132,6 +185,7 @@ text-shadow: 2px 2px 8px #fff;
     border-radius: 15px;
     box-sizing:border-box;
     padding:10px 0px;
+    text-align:center;
     background-color: rgba(220,255,220,0.5)
 }
 #entrance .about h2{
@@ -144,7 +198,7 @@ text-shadow: 2px 2px 8px #fff;
 #entrance .about p{
     font-size:16px;
     line-height:28px;
-text-shadow: 2px 2px 3px black;
+    text-shadow: 2px 2px 3px black;
     margin:0px;
 }
 #entrance .about .part:first-child{
@@ -167,18 +221,14 @@ text-shadow: 1px 1px 6px #999;
 #main span.grow{
     margin-bottom: 40px;
     display:block;
-    border-bottom: 2px solid #99cc99; /* ライトグリーン */
+    border-bottom: 2px solid #99cc99; 
     font-size:0px;
     line-height:0px;
     height:1px;
     width:100%;
-    /* ネオン効果 */
     box-shadow: 0 0 7px #99cc99, 0 0 14px #99cc99, 0 0 21px #99cc99, 0 0 28px #99cc99;
-    
-    /* ネオンの色を光らせるアニメーション */
     animation: neonGlow 3s ease-in-out infinite alternate;
 }
-/* アニメーション定義 */
 @keyframes neonGlow {
     0% {
         box-shadow: 0 0 7px #99cc99, 0 0 14px #99cc99, 0 0 21px #99cc99, 0 0 28px #99cc99;
@@ -186,7 +236,7 @@ text-shadow: 1px 1px 6px #999;
     }
     100% {
         box-shadow: 0 0 15px #66ff66, 0 0 30px #66ff66, 0 0 45px #66ff66, 0 0 60px #66ff66;
-        border-bottom-color: #66ff66; /* 光の強弱にあわせて色も変化 */
+        border-bottom-color: #66ff66;
     }
 }
 
@@ -196,8 +246,14 @@ text-shadow: 1px 1px 6px #999;
 
 #main .part h2 {
     font-size: 1.8em;
-    color: #66cc66; /* ダークグリーン */
+    color: #66cc66;
     margin-bottom:10px;
+}
+#main .part h3 {
+    font-size: 1.6em;
+    color: #66cc66;
+    margin:40px 0px 10px;
+    border-bottom:solid 1px #fff;
 }
 #main #info{
     margin-bottom:120px;
@@ -242,11 +298,11 @@ text-shadow: 1px 1px 6px #999;
 }
 #contents .part {
     width: 80%;
-    background-size: cover; /* 画像が画面いっぱいにカバーするように */
-    background-position: center; /* 画像を中央に配置 */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     height: 450px;
-    font-size: 14px; /* フォントサイズの指定を修正 */
+    font-size: 14px;
     position: relative;
     margin-bottom: 60px;
 }
@@ -254,21 +310,20 @@ text-shadow: 1px 1px 6px #999;
     content: '';
     position: absolute;
     top: 0;
-    right: -5%; /* 左の境目を少し外側に拡張 */
-    width: 5%; /* グラデーションの幅 */
+    right: -5%;
+    width: 5%;
     height: 450px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* 左から右に透明になるグラデーション */
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
-
 
 #contents .part.content_live::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -5%; /* 左の境目を少し外側に拡張 */
-    width: 5%; /* グラデーションの幅 */
+    left: -5%;
+    width: 5%;
     height: 450px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); /* 左から右に透明になるグラデーション */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 }
 
 #contents .part h2 {
@@ -285,13 +340,13 @@ text-shadow: 1px 1px 6px #999;
 }
 
 #contents .content_photo {
-    float: left;
-    background-image: url('../img/group-pic-1.png'); /* ダミー背景画像 */
+    float: right;
+    background-image: url('../img/content_photo.png');
 }
 #contents .content_photo .wrap {
-    position: relative; /* 疑似要素の位置指定に必要 */
-    width: 50%; /* 幅を40%に設定 */
-    margin-left: auto; /* 右寄せするために左に自動で余白 */
+    position: relative;
+    width: 50%;
+    margin-right: auto; /* 右寄せするために左に自動で余白 */
     background-color: rgba(0, 0, 0, 0.8); /* 背景を少し半透明に */
     padding: 20px; /* 内側の余白を追加 */
     color: #fff;
@@ -301,18 +356,44 @@ text-shadow: 1px 1px 6px #999;
     content: '';
     position: absolute;
     top: 0;
+    right: -40px; /* 左の境目を少し外側に拡張 */
+    width: 40px; /* グラデーションの幅 */
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* 左から右に透明になるグラデーション */
+}
+
+#contents .content_live{
+    float:left;
+    background-image: url('../img/content_live.png'); /* ダミー背景画像 */
+}
+
+#contents .content_live .wrap {
+    position: relative; /* 疑似要素の位置指定に必要 */
+    width: 50%; /* 幅を40%に設定 */
+    margin-left: auto; /* 右寄せするために左に自動で余白 */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を少し半透明に */
+    padding: 20px; /* 内側の余白を追加 */
+    color: #fff;
+    box-sizing:border-box;
+}
+#contents .content_live .wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
     left: -40px; /* 左の境目を少し外側に拡張 */
     width: 40px; /* グラデーションの幅 */
     height: 100%;
     background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* 左から右に透明になるグラデーション */
 }
 
-#contents .content_live{
+
+#contents .content_family{
     float:right;
-    background-image: url('../img/performer.png'); /* ダミー背景画像 */
+    background-image: url('../img/content_family.png'); /* ダミー背景画像 */
 }
 
-#contents .content_live .wrap {
+
+#contents .content_family .wrap {
     position: relative; /* 疑似要素の位置指定に必要 */
     width: 50%; /* 幅を40%に設定 */
     margin-right: auto; /* 右寄せするために左に自動で余白 */
@@ -321,7 +402,7 @@ text-shadow: 1px 1px 6px #999;
     color: #fff;
     box-sizing:border-box;
 }
-#contents .content_live .wrap::before {
+#contents .content_family .wrap::before {
     content: '';
     position: absolute;
     top: 0;
@@ -332,13 +413,13 @@ text-shadow: 1px 1px 6px #999;
 }
 
 
-#contents .content_family{
+#contents .content_youtube{
     float:left;
-    background-image: url('../img/header-3.png'); /* ダミー背景画像 */
+    background-position: left; /* 画像を中央に配置 */
+    background-image: url('../img/content_youtube.png'); /* ダミー背景画像 */
 }
 
-
-#contents .content_family .wrap {
+#contents .content_youtube .wrap {
     position: relative; /* 疑似要素の位置指定に必要 */
     width: 50%; /* 幅を40%に設定 */
     margin-left: auto; /* 右寄せするために左に自動で余白 */
@@ -347,7 +428,7 @@ text-shadow: 1px 1px 6px #999;
     color: #fff;
     box-sizing:border-box;
 }
-#contents .content_family .wrap::before {
+#contents .content_youtube .wrap::before {
     content: '';
     position: absolute;
     top: 0;
@@ -357,159 +438,195 @@ text-shadow: 1px 1px 6px #999;
     background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* 左から右に透明になるグラデーション */
 }
 
+
+
+
+
+
+
+
 /* メンバーセクション */
 
 #member{
-    margin-bottom:120px;
+    clear:both;
 }
+
 #member .memberBox {
-    overflow:hidden;
+    padding:40px 0px;
+    max-width:1400px;
+    margin:0px auto;
 }
+
 #member .memberBox div:first-child{
     float:none;
-    width:100%;
-    height:400px;
+    width:80%;
+    margin:0px 10% 0px;
+    min-height:400px;
+    max-height:560px;
+    height: 60vh;
 }
 #member .memberBox div {
     float:left;
-    background-color: #333;
     width: 50%;
-    box-sizing:border-box;
-    padding: 20px;
-    height:300px;
-    text-align: center;
+    min-height:300px;
+    max-height:420px;
+    height: 40vh;
+    position:relative;
+}
+#member .memberBox div {
+    float:left;
+    width: 50%;
+    min-height:300px;
+    height: 40vh;
+    position:relative;
+}
+#member .memberBox div:hover{
+    z-index:900;
+}
+
+#member .memberBox a {
     transition: transform 0.3s ease;
     background-size: cover; /* 画像が画面いっぱいにカバーするように */
     background-position: center top; /* 画像を中央に配置 */
     background-repeat: no-repeat;
-    position:relative;
+    border-radius: 8px;
+    overflow:hidden;
 }
 
-#member .memberBox div:hover {
-    transform: scale(1.05);
-}
 
-#member .memberBox .nectalia{
+
+#member .memberBox .nectalia a{
     background-image: url('../img/member_nectalia.png');
 }
-#member .memberBox .nectalia p{
-background-color: rgba(200, 150, 255, 0.5);
-}
-
-#member .memberBox .nisha{
+#member .memberBox .nisha a{
     background-image: url('../img/member_nisha.png');
-
 }
-#member .memberBox .nisha p{
-background-color: rgba(255, 150, 150, 0.5);
-}
-
-#member .memberBox .akiaki{
+#member .memberBox .akiaki a{
     background-image: url('../img/member_akiaki.png');
-
 }
-#member .memberBox .akiaki p{
-background-color: rgba(150, 255, 255, 0.5);
-}
-
-#member .memberBox .kirara{
+#member .memberBox .kirara a{
     background-image: url('../img/member_kirara.png');
-
 }
-#member .memberBox .kirara p{
-background-color: rgba(150, 255, 150, 0.5);
-}
-
-#member .memberBox .arum{
+#member .memberBox .arum a{
     background-image: url('../img/member_arum.png');
-
-}
-#member .memberBox .arum p{
-background-color: rgba(255, 255, 150, 0.5);
 }
 
-
-#member .memberBox div p {
-    font-size: 1.5em;
-    color: #fff;
-    font-weight:900;
-    text-shadow: 2px 2px 3px black;
+#member .memberBox div.nisha a span:first-child {
+    background-color: rgba(255, 150, 150, 0.5);
+}
+#member .memberBox div.akiaki a span:first-child {
+    background-color: rgba(150, 255, 255, 0.5);
+}
+#member .memberBox div.kirara a span:first-child {
+    background-color: rgba(150, 255, 150, 0.5);
+}
+#member .memberBox div.arum a span:first-child {
+    background-color: rgba(255, 255, 150, 0.5);
 }
 
 #member .memberBox div a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-sizing:border-box;
+    padding-top:10px;
+}
+
+#member .memberBox div a:hover {
+    background-color: #66ff66;
+    color: #fff;
+    text-shadow: 1px 1px 1px #225522;;
+    transform: scale(1.06);
+    filter: brightness(1.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+#member .memberBox div a span:first-child {
+    display: block;
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 900;
+    text-shadow: 2px 2px 3px black;
+    background-color: rgba(200, 150, 255, 0.5);
+    padding: 10px;
+    margin:0 5%;
+}
+
+#member .memberBox div a span:last-child {
     display: inline-block;
     margin-top: 10px;
     font-size: 1em;
     padding: 10px 20px;
-    box-sizing: border-box;
-    background-color: #99cc99; /* ライトグリーン */
+    background-color: #77dd77; 
     color: #1a1a1a;
     border-radius: 5px;
     position: absolute;
     bottom: 20px;
-    width: 100px;
     left: 50%;
-    margin-left: -50px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* アニメーションを追加 */
+    transform: translateX(-50%);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-/* ホバー時のエフェクト */
-#member .memberBox div a:hover {
-    background-color: #66ff66; /* 明るいグリーン */
-    color: #fff; /* テキストの色を白に */
-    transform: scale(1.1); /* 少し拡大 */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3); /* 光る効果 */
+#member .memberBox div a:hover span:last-child {
+    background-color: #44cc44;
+    color: #fff;
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-/* ソーシャルリンク */
 #social {
+    clear:both;
+    padding-top:120px;
     margin-bottom: 120px;
 }
-
 
 #social ul {
     padding:50px 0px 50px;
     list-style: none;
     margin: 0;
     width: 80%;
-    margin: 0 auto; /* 自動で左右のマージンを調整 */
+    margin: 0 auto;
     overflow: hidden;
-    text-align: center; /* セクションを中央揃えに */
+    text-align: center;
 }
 
 #social ul li {
-    margin-bottom: 30px; /* リスト項目のマージンを増やす */
+    margin-bottom: 30px;
     float: left;
     width: 30%;
     margin: 0 1.66%;
-    position: relative; /* アイコンを正しい位置に配置するため */
+    position: relative;
 }
 
 #social ul li img {
-    width: auto; /* アイコンの幅を増加 */
-    height: 100px; /* 高さは自動調整 */
-    margin-bottom: 10px; /* テキストとの間に余白を追加 */
-    vertical-align: middle; /* アイコンとテキストを中央揃え */
+    width: auto;
+    height: 100px;
+    margin-bottom: 10px;
+    vertical-align: middle;
 }
 
 #social ul li a {
     font-size: 1.2em;
-    padding: 5px 20px; /* パディングを調整 */
-    border: 2px solid #99cc99; /* ライトグリーン */
+    padding: 5px 20px;
+    border: 2px solid #99cc99; 
     border-radius: 5px;
-    display: flex; /* フレックスボックスでアイコンとテキストを整列 */
-    flex-direction: column; /* 縦に配置するために方向を変更 */
-    align-items: center; /* 水平方向の中央揃え */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* ホバー時の変化を追加 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     height:160px;
     padding-top:20px;
 }
 
 #social ul li a:hover {
-    background-color: #99cc99; /* ライトグリーン */
+    background-color: #99cc99; 
     color: #1a1a1a;
-    transform: translateY(-3px); /* ホバー時に少し上に動くアニメーション */
-    box-shadow: 0 0 10px #99cc99, 0 0 20px #99cc99; /* ホバー時のネオン効果 */
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px #99cc99, 0 0 20px #99cc99;
 }
 
 #contact{
@@ -520,9 +637,17 @@ background-color: rgba(255, 255, 150, 0.5);
 }
 #notes .notesBox{
     background-color: rgba(255,255,255,0.3);
-    width:60%;
-    margin:0px 20% 0;
+    width:70%;
+    margin:0px 15% 0;
 
+}
+.notesBox.highlighted-notes {
+    background-color: rgba(255, 255, 255, 0.8); /* Brighter background */
+    border: 3px solid #ffcc00; /* Border to emphasize the section */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.5); /* Subtle glow effect */
+    margin: 40px auto; /* Centering and spacing */
 }
 #notes ul{
     padding-top:10px;
@@ -530,20 +655,17 @@ background-color: rgba(255, 255, 150, 0.5);
     overflow:hidden;
     box-sizing:border-box;
 }
-#notes ul li{
-    font-size:15px;
-    margin-bottom:10px;
-    color:#cccccc;
-    font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+#notes ul li {
+    font-size: 1.8em;
+    margin-bottom: 15px;
 }
 #notes ul ul{
     width:100%;
     margin:10px 0px 0px;
     box-sizing:border-box;
 }
-#notes ul ul li{
-    font-size:13.5px;
-    margin-bottom:5px;
+#notes ul ul li {
+    font-size: 0.8em;
 }
 /* フッター */
 #footer {
@@ -557,9 +679,8 @@ background-color: rgba(255, 255, 150, 0.5);
     font-size: 0.9em;
 }
 
-/* モーダルのスタイル */
 .modal {
-    display: none; /* デフォルトは非表示 */
+    display: none;
     position: fixed;
     z-index: 1002;
     padding-top: 100px;
@@ -567,7 +688,7 @@ background-color: rgba(255, 255, 150, 0.5);
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* 背景の半透明黒 */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
@@ -575,8 +696,8 @@ background-color: rgba(255, 255, 150, 0.5);
     display: block;
     width: 70%;
     max-width: 400px;
-    border: 2px solid #99cc99; /* ライトグリーン */
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7); /* ネオン風のシャドウ */
+    border: 2px solid #99cc99; 
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
 }
 
 #caption {
@@ -589,7 +710,6 @@ background-color: rgba(255, 255, 150, 0.5);
     padding: 10px 0;
 }
 
-/* 閉じるボタンのスタイル */
 .close {
     position: absolute;
     top: 20px;
@@ -604,8 +724,6 @@ background-color: rgba(255, 255, 150, 0.5);
 .close:focus {
     color: #99cc99;
 }
-
-
 
 
 #contactForm {
