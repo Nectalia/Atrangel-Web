@@ -1,0 +1,773 @@
+/* 全体設定 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    line-height: 1.6;
+    font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+}
+
+a {
+    color: #99cc99; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #66aa66;
+}
+
+a.linkbox {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1em;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #77dd77; 
+    color: #1a1a1a;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* アニメーションを追加 */
+}
+
+a.linkbox:hover {
+    background-color: #44cc44;
+    color: #fff;
+    text-shadow: 1px 1px 1px #225522;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+/* ヘッダー */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header .logo {
+    position:absolute;
+    width:220px;
+    height:100px;
+    top:5px;
+    left:20px;
+    background-image: url('../img/atrangel.png');
+    font-size:0px;
+    line-height:0px;
+    overflow:hidden;
+    text-indent:-100%
+}
+#header .link {
+    position:absolute;
+    right:15px;
+    top:10px;
+    width:200px;
+    line-height:0px;
+    font-size:0px;
+    border: 1px solid #99cc99; 
+    border-radius: 5px;
+    overflow:hidden;
+    transition: opacity 0.3s ease;
+}
+#header .link:hover{
+    opacity: 0.6;
+}
+#header .link img{
+    width:100%;
+    height:auto;
+}
+
+#header ul {
+    position:absolute;
+    right:15px;
+    top:78px;
+    width:200px;
+    list-style: none;
+    border: 1px solid #99cc99; 
+    border-radius: 5px;
+    padding-left:0;
+    background-color: rgba(0,50,0,0.8);
+
+}
+#header ul li{
+    display:none;
+    padding-left:35px;
+    transition: background-color 0.3s ease;
+}
+#header ul li:first-child{
+    display:block;
+    background: url('../img/menu.png') left top no-repeat;
+}
+
+#header ul li a {
+    font-size: 0.9em;
+    padding: 0px 5px;
+    display:block;
+    height:35px;
+    line-height:35px;
+}
+
+#header ul li:hover {
+    background-color: #99cc99;
+    color: #1a1a1a;
+}
+#header ul li:hover a {
+    color: #1a1a1a;
+}
+
+/* エントランス部分 */
+#entrance{
+    width:100%;
+    overflow:hidden;
+    margin-bottom:120px;
+}
+#entrance #top {
+    position:relative;
+    width: 100%;
+    height: 100vh; /* ビューポートの高さに対応 */
+
+}
+#entrance #top .bg{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-size: cover; /* 画像が画面いっぱいにカバーするように */
+    background-position: center; /* 画像を中央に配置 */
+    display:none;
+}
+#entrance #top .background1{
+    background-image: url('../img/header-1.png');
+}
+#entrance #top .background2{
+    background-image: url('../img/header-2.png');
+}
+#entrance #top .background3{
+    background-image: url('../img/header-3.png');
+}
+#entrance #top .background4{
+    background-image: url('../img/header-4.png');
+}
+#entrance .overlay{
+    width:100%;
+    height:100%;
+    background-color:#000;
+    z-index:1001;
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#entrance .overlay h2{
+    font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+    font-size:40px;
+    width:100%;
+    font-style:italic;
+text-shadow: 2px 2px 8px #fff;
+    font-weight:400;
+}
+#entrance .about{
+    position:absolute;
+    width:300px;
+    height:200px;
+    right:30px;
+    bottom:50px;
+    border-radius: 15px;
+    box-sizing:border-box;
+    padding:10px 0px;
+    text-align:center;
+    background-color: rgba(220,255,220,0.5)
+}
+#entrance .about h2{
+    font-size:28px;
+    line-height:36px;
+    height:40px;
+    text-shadow: 2px 2px 3px black;
+    margin:0px;
+}
+#entrance .about p{
+    font-size:16px;
+    line-height:28px;
+    text-shadow: 2px 2px 3px black;
+    margin:0px;
+}
+#entrance .about .part:first-child{
+    margin-bottom:20px;
+}
+/* メインコンテンツ */
+#main {
+    padding: 0px;
+    background-color: #1a1a1a;
+}
+
+#main h1 {
+    font-size: 2.2em;
+    padding: 90px 10% 0px;
+    margin-bottom:5px;
+    font-style:italic;
+text-shadow: 1px 1px 6px #999;
+    
+}
+#main span.grow{
+    margin-bottom: 40px;
+    display:block;
+    border-bottom: 2px solid #99cc99; 
+    font-size:0px;
+    line-height:0px;
+    height:1px;
+    width:100%;
+    box-shadow: 0 0 7px #99cc99, 0 0 14px #99cc99, 0 0 21px #99cc99, 0 0 28px #99cc99;
+    animation: neonGlow 3s ease-in-out infinite alternate;
+}
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 7px #99cc99, 0 0 14px #99cc99, 0 0 21px #99cc99, 0 0 28px #99cc99;
+        border-bottom-color: #99cc99;
+    }
+    100% {
+        box-shadow: 0 0 15px #66ff66, 0 0 30px #66ff66, 0 0 45px #66ff66, 0 0 60px #66ff66;
+        border-bottom-color: #66ff66;
+    }
+}
+
+#main .part {
+    margin-bottom: 30px;
+}
+
+#main .part h2 {
+    font-size: 1.8em;
+    color: #66cc66;
+    margin-bottom:10px;
+}
+#main .part h3 {
+    font-size: 1.6em;
+    color: #66cc66;
+    margin:40px 0px 10px;
+    border-bottom:solid 1px #fff;
+}
+#main #info{
+    margin-bottom:120px;
+}
+#main .part p {
+    font-size: 1.2em;
+    color: #f5f5f5;
+}
+#main #info .part{
+    width:80%;
+    margin:0px 10%;
+}
+#main #info .part a.banner{
+    display:block;
+    overflow:hidden;
+    width:80%;
+    margin:0px 10% 0px;
+    height:auto;
+    border-radius: 20px;
+    border:solid 3px #fff;
+    line-height:0px;
+    font-size:0px;
+    transition: opacity 0.3s ease;
+}
+#main #info .part a.banner:hover{
+    opacity: 0.6;
+}
+
+#main #info .part img{
+    width:100%;
+    height:auto;
+}
+
+#contents{
+    margin-bottom:120px;
+
+}
+#contents .contentsBox {
+    width:100%;
+    margin:0px;
+    overflow:hidden;
+}
+#contents .part {
+    width: 80%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 450px;
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 60px;
+}
+#contents .part::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5%;
+    width: 5%;
+    height: 450px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+#contents .part.content_live::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 5%;
+    height: 450px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+#contents .part h2 {
+    font-size: 2.2em;
+    font-weight:900;
+    color: #fff;
+    font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+#contents .wrap{
+    height:100%;
+    height: 450px;
+}
+
+#contents .content_photo {
+    float: right;
+    background-image: url('../img/content_photo.png');
+}
+#contents .content_photo .wrap {
+    position: relative;
+    width: 50%;
+    margin-right: auto; /* 右寄せするために左に自動で余白 */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を少し半透明に */
+    padding: 20px; /* 内側の余白を追加 */
+    color: #fff;
+    box-sizing:border-box;
+}
+#contents .content_photo .wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -40px; /* 左の境目を少し外側に拡張 */
+    width: 40px; /* グラデーションの幅 */
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* 左から右に透明になるグラデーション */
+}
+
+#contents .content_live{
+    float:left;
+    background-image: url('../img/content_live.png'); /* ダミー背景画像 */
+}
+
+#contents .content_live .wrap {
+    position: relative; /* 疑似要素の位置指定に必要 */
+    width: 50%; /* 幅を40%に設定 */
+    margin-left: auto; /* 右寄せするために左に自動で余白 */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を少し半透明に */
+    padding: 20px; /* 内側の余白を追加 */
+    color: #fff;
+    box-sizing:border-box;
+}
+#contents .content_live .wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40px; /* 左の境目を少し外側に拡張 */
+    width: 40px; /* グラデーションの幅 */
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* 左から右に透明になるグラデーション */
+}
+
+
+#contents .content_family{
+    float:right;
+    background-image: url('../img/content_family.png'); /* ダミー背景画像 */
+}
+
+
+#contents .content_family .wrap {
+    position: relative; /* 疑似要素の位置指定に必要 */
+    width: 50%; /* 幅を40%に設定 */
+    margin-right: auto; /* 右寄せするために左に自動で余白 */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を少し半透明に */
+    padding: 20px; /* 内側の余白を追加 */
+    color: #fff;
+    box-sizing:border-box;
+}
+#contents .content_family .wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -40px; /* 左の境目を少し外側に拡張 */
+    width: 40px; /* グラデーションの幅 */
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* 左から右に透明になるグラデーション */
+}
+
+
+#contents .content_youtube{
+    float:left;
+    background-position: left; /* 画像を中央に配置 */
+    background-image: url('../img/content_youtube.png'); /* ダミー背景画像 */
+}
+
+#contents .content_youtube .wrap {
+    position: relative; /* 疑似要素の位置指定に必要 */
+    width: 50%; /* 幅を40%に設定 */
+    margin-left: auto; /* 右寄せするために左に自動で余白 */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を少し半透明に */
+    padding: 20px; /* 内側の余白を追加 */
+    color: #fff;
+    box-sizing:border-box;
+}
+#contents .content_youtube .wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40px; /* 左の境目を少し外側に拡張 */
+    width: 40px; /* グラデーションの幅 */
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* 左から右に透明になるグラデーション */
+}
+
+
+
+
+
+
+
+
+/* メンバーセクション */
+
+#member{
+    clear:both;
+}
+
+#member .memberBox {
+    padding:40px 0px;
+    max-width:1400px;
+    margin:0px auto;
+}
+
+#member .memberBox div:first-child{
+    float:none;
+    width:80%;
+    margin:0px 10% 0px;
+    min-height:400px;
+    max-height:560px;
+    height: 60vh;
+}
+#member .memberBox div {
+    float:left;
+    width: 50%;
+    min-height:300px;
+    max-height:420px;
+    height: 40vh;
+    position:relative;
+}
+#member .memberBox div {
+    float:left;
+    width: 50%;
+    min-height:300px;
+    height: 40vh;
+    position:relative;
+}
+#member .memberBox div:hover{
+    z-index:900;
+}
+
+#member .memberBox a {
+    transition: transform 0.3s ease;
+    background-size: cover; /* 画像が画面いっぱいにカバーするように */
+    background-position: center top; /* 画像を中央に配置 */
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    overflow:hidden;
+}
+
+
+
+#member .memberBox .nectalia a{
+    background-image: url('../img/member_nectalia.png');
+}
+#member .memberBox .nisha a{
+    background-image: url('../img/member_nisha.png');
+}
+#member .memberBox .akiaki a{
+    background-image: url('../img/member_akiaki.png');
+}
+#member .memberBox .kirara a{
+    background-image: url('../img/member_kirara.png');
+}
+#member .memberBox .arum a{
+    background-image: url('../img/member_arum.png');
+}
+
+#member .memberBox div.nisha a span:first-child {
+    background-color: rgba(255, 150, 150, 0.5);
+}
+#member .memberBox div.akiaki a span:first-child {
+    background-color: rgba(150, 255, 255, 0.5);
+}
+#member .memberBox div.kirara a span:first-child {
+    background-color: rgba(150, 255, 150, 0.5);
+}
+#member .memberBox div.arum a span:first-child {
+    background-color: rgba(255, 255, 150, 0.5);
+}
+
+#member .memberBox div a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-sizing:border-box;
+    padding-top:10px;
+}
+
+#member .memberBox div a:hover {
+    background-color: #66ff66;
+    color: #fff;
+    text-shadow: 1px 1px 1px #225522;;
+    transform: scale(1.06);
+    filter: brightness(1.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+#member .memberBox div a span:first-child {
+    display: block;
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 900;
+    text-shadow: 2px 2px 3px black;
+    background-color: rgba(200, 150, 255, 0.5);
+    padding: 10px;
+    margin:0 5%;
+}
+
+#member .memberBox div a span:last-child {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #77dd77; 
+    color: #1a1a1a;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+#member .memberBox div a:hover span:last-child {
+    background-color: #44cc44;
+    color: #fff;
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+#social {
+    clear:both;
+    padding-top:120px;
+    margin-bottom: 120px;
+}
+
+#social ul {
+    padding:50px 0px 50px;
+    list-style: none;
+    margin: 0;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+#social ul li {
+    margin-bottom: 30px;
+    float: left;
+    width: 30%;
+    margin: 0 1.66%;
+    position: relative;
+}
+
+#social ul li img {
+    width: auto;
+    height: 100px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+#social ul li a {
+    font-size: 1.2em;
+    padding: 5px 20px;
+    border: 2px solid #99cc99; 
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    height:160px;
+    padding-top:20px;
+}
+
+#social ul li a:hover {
+    background-color: #99cc99; 
+    color: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px #99cc99, 0 0 20px #99cc99;
+}
+
+#contact{
+    margin-bottom:120px;
+}
+#notes{
+    margin-bottom:120px;
+}
+#notes .notesBox{
+    background-color: rgba(255,255,255,0.3);
+    width:70%;
+    margin:0px 15% 0;
+
+}
+.notesBox.highlighted-notes {
+    background-color: rgba(255, 255, 255, 0.8); /* Brighter background */
+    border: 3px solid #ffcc00; /* Border to emphasize the section */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.5); /* Subtle glow effect */
+    margin: 40px auto; /* Centering and spacing */
+}
+#notes ul{
+    padding-top:10px;
+    padding-bottom:10px;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+#notes ul li {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+#notes ul ul{
+    width:100%;
+    margin:10px 0px 0px;
+    box-sizing:border-box;
+}
+#notes ul ul li {
+    font-size: 0.8em;
+}
+/* フッター */
+#footer {
+    background-color: #262626;
+    padding: 20px;
+    text-align: center;
+}
+
+#footer .copy {
+    color: #cccccc;
+    font-size: 0.9em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 70%;
+    max-width: 400px;
+    border: 2px solid #99cc99; 
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #99cc99;
+}
+
+
+#contactForm {
+color:#000;
+    max-width: 600px;
+    margin: 50px auto 0px;
+    padding: 20px;
+background-color: rgba(255,255,255,0.6);
+    border-radius: 8px;
+}
+
+#contactForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+box-sizing:border-box;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+#contactForm textarea{
+    height:100px;
+}
+#contactForm .required {
+    color: red;
+}
+
+#contactForm button {
+    padding: 10px 20px;
+    background-color: #99cc99;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#contactForm button:hover {
+    background-color: #66bb66;
+}
