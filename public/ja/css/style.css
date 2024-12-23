@@ -496,19 +496,19 @@ text-shadow: 1px 1px 6px #999;
 
 
 #member .memberBox .nectalia a{
-    background-image: url('../img/member_nectalia.png');
+    background-image: url('../img/member_nectalia.jpg');
 }
 #member .memberBox .nisha a{
-    background-image: url('../img/member_nisha.png');
+    background-image: url('../img/member_nisha.jpg');
 }
 #member .memberBox .akiaki a{
-    background-image: url('../img/member_akiaki.png');
+    background-image: url('../img/member_akiaki.jpg');
 }
 #member .memberBox .kirara a{
-    background-image: url('../img/member_kirara.png');
+    background-image: url('../img/member_kirara.jpg');
 }
 #member .memberBox .arum a{
-    background-image: url('../img/member_arum.png');
+    background-image: url('../img/member_arum.jpg');
 }
 
 #member .memberBox div.nisha a span:first-child {
