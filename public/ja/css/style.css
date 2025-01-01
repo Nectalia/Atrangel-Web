@@ -452,31 +452,23 @@ text-shadow: 1px 1px 6px #999;
 }
 
 #member .memberBox {
-    padding:40px 0px;
+    padding:80px 0px 40px;
     max-width:1400px;
     margin:0px auto;
 }
 
-#member .memberBox div:first-child{
-    float:none;
-    width:80%;
-    margin:0px 10% 0px;
-    min-height:400px;
-    max-height:560px;
-    height: 60vh;
+#member .memberBox div.master a{
+    position:absolute;
+    bottom:0;
+    min-height:350px;
+    max-height:500px;
+    height: 50vh;
 }
 #member .memberBox div {
     float:left;
-    width: 50%;
+    width: 33.33%;
     min-height:300px;
     max-height:420px;
-    height: 40vh;
-    position:relative;
-}
-#member .memberBox div {
-    float:left;
-    width: 50%;
-    min-height:300px;
     height: 40vh;
     position:relative;
 }
@@ -510,6 +502,20 @@ text-shadow: 1px 1px 6px #999;
 #member .memberBox .arum a{
     background-image: url('../img/member_arum.jpg');
 }
+#member .memberBox .motch a{
+    background-image: url('../img/member_motch.jpg');
+}
+#member .memberBox .kokuya a{
+    background-image: url('../img/member_kokuya.jpg');
+}
+#member .memberBox .ama a{
+    background-image: url('../img/member_ama.jpg');
+}
+#member .memberBox .uta a{
+    background-image: url('../img/member_uta.jpg');
+}
+
+
 
 #member .memberBox div.nisha a span:first-child {
     background-color: rgba(255, 150, 150, 0.5);
@@ -522,6 +528,18 @@ text-shadow: 1px 1px 6px #999;
 }
 #member .memberBox div.arum a span:first-child {
     background-color: rgba(255, 255, 150, 0.5);
+}
+#member .memberBox div.motch a span:first-child {
+    background-color: rgba(45, 219, 158, 0.5);
+}
+#member .memberBox div.kokuya a span:first-child {
+    background-color: rgba(186, 186, 186, 0.5);
+}
+#member .memberBox div.ama a span:first-child {
+    background-color: rgba(100, 202, 128, 0.5);
+}
+#member .memberBox div.uta a span:first-child {
+    background-color: rgba(206, 73, 74, 0.5);
 }
 
 #member .memberBox div a {
